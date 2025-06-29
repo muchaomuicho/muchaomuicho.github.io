@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>809原神玩家统计</title>
+      <link href="/p/809/"/>
+      <url>/p/809/</url>
+      
+        <content type="html"><![CDATA[<h1 id="809原神玩家统计"><a href="#809原神玩家统计" class="headerlink" title="809原神玩家统计"></a>809原神玩家统计</h1><h2 id="按UID顺序排列"><a href="#按UID顺序排列" class="headerlink" title="按UID顺序排列"></a>按UID顺序排列</h2><p>陈城-张绍泽 UID122792123 昵称：莹<br>陈俊恺 UID261667727 昵称：白厄<br>宋语建 UID274706410 昵称：夏语<br>赵家乐 UID279081147 昵称：芙厨<br>俞炀琲 UID289436226 昵称：主人<br>何昊城 UID289884942 昵称：hhc<br>吴亦晗 UID297554399 昵称：栾<br>斯恒磊 UID306661845 昵称：珉豫<br>吴偲 UID332432360 昵称：WuCNebssss<br>王琛 UID336696487 昵称：寸寸<br>马维玉 UID337570055 昵称：银川<br>楼淑娜 UID339285589 昵称：sune</p><p>疑似：<br>赵王烮 UID334699755 昵称：救世主</p><p></style></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自建订阅转换 SubConverter</title>
+      <link href="/p/subapi/"/>
+      <url>/p/subapi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="自建订阅转换-SubConverter"><a href="#自建订阅转换-SubConverter" class="headerlink" title="自建订阅转换 SubConverter"></a>自建订阅转换 SubConverter</h1><h2 id="什么是订阅转换？"><a href="#什么是订阅转换？" class="headerlink" title="什么是订阅转换？"></a>什么是订阅转换？</h2><p>因为市面上的梯子很多，支持的订阅格式各不相同，所以我们需要一个可以转换订阅格式的工具。</p><p>市面上最常见的订阅转换工具是 <strong>SubConverter</strong>，但是因为原作者 <a href="https://github.com/tindy2013/subconverter">tindy2013</a> 更新维护频率并不高，<br>所以这次教程演示的是另一个大佬维护的版本 <a href="https://github.com/asdlokj1qpi233/subconverter">asdlokj1qpi233&#x2F;subconverter</a>（<strong>请给大佬的项目点颗Star支持一下</strong>），有问题可以在该项目的 <a href="https://github.com/asdlokj1qpi233/subconverter/issues">issues</a> 提交反馈。</p><hr><h2 id="什么是前端与后端？"><a href="#什么是前端与后端？" class="headerlink" title="什么是前端与后端？"></a>什么是前端与后端？</h2><ul><li><p>后端：实际负责处理订阅转换的核心程序，即 <strong>SubConverter</strong> 本体。例如：</p><ol><li><a href="https://subapi.cmliussss.net/version">https://subapi.cmliussss.net</a>（CM佬维护）</li><li><a href="https://url.v1.mk/version">https://url.v1.mk</a>（<a href="https://github.com/youshandefeiyang">肥羊</a>维护）</li></ol></li></ul><blockquote><p><strong>重要</strong>：后端没有用户界面，直接访问域名<strong>网页打不开</strong>是正常现象。后端只需要提供 API 接口，供前端调用来完成订阅转换。</p></blockquote><ul><li><p>前端：用户交互界面，提供方便的方式让用户输入订阅链接、选择转换格式的静态网页。例如：</p><ol><li><a href="https://sub.cmliussss.com/">https://sub.cmliussss.com</a> （CM佬维护的订阅转换前端）</li><li><a href="https://suburl.v1.mk/">https://suburl.v1.mk</a> （<a href="https://github.com/youshandefeiyang/sub-web-modify">肥羊</a>维护的订阅转换前端）</li></ol></li></ul><blockquote><p><strong>说明</strong>：前端<strong>网页可以正常打开</strong>，如果你不打算将订阅转换作为公共服务提供给他人使用，前端其实是可有可无的。</p></blockquote><hr><h2 id="📋-部署须知"><a href="#📋-部署须知" class="headerlink" title="📋 部署须知"></a>📋 部署须知</h2><p>本教程采用 Docker 容器化部署方式：</p><ol><li><p><strong>无 VPS 用户</strong>：可以使用 <a href="https://url.cmliussss.com/rcc">ClawCloudRun</a> 直接部署后端。<strong>本教程重点介绍如何使用 ClawCloudRun 部署后端。</strong></p></li><li><p><strong>有 VPS 用户</strong>：可以在 VPS 上直接运行以下命令部署后端：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always -p 25500:25500 asdlokj1qpi23/subconverter:latest</span><br></pre></td></tr></table></figure></li></ol><blockquote><p><strong>⚠️ 重要提醒</strong>：由于订阅链接可能存在被墙的情况，所以<strong>后端必须部署在境外服务器上</strong>，以确保能够正常获取订阅内容。</p></blockquote><hr><h2 id="🛠️-事前准备"><a href="#🛠️-事前准备" class="headerlink" title="🛠️ 事前准备"></a>🛠️ 事前准备</h2><p>需要一个ClawCloudRun账号</p><ul><li><strong>推荐</strong>：使用注册满 180 天以上的 GitHub 账号注册，每月可获得 $5 免费额度</li></ul><hr><h2 id="🚀-部署后端"><a href="#🚀-部署后端" class="headerlink" title="🚀 部署后端"></a>🚀 部署后端</h2><ol><li>登录 <a href="https://url.cmliussss.com/rcc">ClawCloudRun</a>。<br><a href="https://blog.cmliussss.com/img/webssh/1-1.png"><img src="https://blog.cmliussss.com/img/webssh/1-1.png" alt="登录ClawCloudRun"></a></li><li>点击 <strong>App Launchpad</strong>，然后点击右上角 <strong>Create App</strong>。<br><a href="https://blog.cmliussss.com/img/SUBAPI/1-2-1.png"><img src="https://blog.cmliussss.com/img/SUBAPI/1-2-1.png" alt="App Launchpad"></a><br><a href="https://blog.cmliussss.com/img/SUBAPI/1-2-2.png"><img src="https://blog.cmliussss.com/img/SUBAPI/1-2-2.png" alt="Create App"></a></li><li>填写参数列表：<ul><li><strong>Application Name</strong>：随便起个名字，例如 <code>subapi</code>。</li><li><strong>Image Name</strong>：填写 <code>asdlokj1qpi23/subconverter</code>。</li><li><strong>CPU</strong>：推荐 <code>0.2</code>（如需作为<strong>公益服务，则配置上不封顶</strong>）。</li><li><strong>Memory</strong>：推荐 <code>256MB</code>（如需作为<strong>公益服务，则配置上不封顶</strong>）。</li><li><strong>Container Port</strong>：填写 <code>25500</code>（推荐绑定自定义域方便记忆）。<br><a href="https://blog.cmliussss.com/img/SUBAPI/1-3-1.png"><img src="https://blog.cmliussss.com/img/SUBAPI/1-3-1.png" alt="填写参数"></a></li></ul></li><li>点击右上角 <strong>Deploy Application</strong> 等待部署完成。<br><a href="https://blog.cmliussss.com/img/SUBAPI/1-4-1.png"><img src="https://blog.cmliussss.com/img/SUBAPI/1-4-1.png" alt="Deploy Application"></a></li><li>部署完成后，访问 <code>/version</code> 路径验证部署状态，如果返回版本信息，说明部署成功。<br><a href="https://blog.cmliussss.com/img/SUBAPI/1-5-1.png"><img src="https://blog.cmliussss.com/img/SUBAPI/1-5-1.png" alt="部署成功"></a></li></ol><hr><h2 id="💡-如何使用？"><a href="#💡-如何使用？" class="headerlink" title="💡 如何使用？"></a>💡 如何使用？</h2><p>部署完成后，你的订阅转换后端地址格式为：<code>https://&lt;your-app-name&gt;.region.clawcloudrun.com</code></p><p><strong>示例地址</strong>：<code>https://vavjhwaixhes.ap-southeast-1.clawcloudrun.com</code></p><h3 id="🔧-使用场景"><a href="#🔧-使用场景" class="headerlink" title="🔧 使用场景"></a>🔧 使用场景</h3><p>1.<strong>配合订阅转换前端使用</strong></p><ul><li>在 <a href="https://suburl.v1.mk/">肥羊的前端</a> 中填写你的后端地址<br><a href="https://blog.cmliussss.com/img/SUBAPI/2-1-1.png"><img src="https://blog.cmliussss.com/img/SUBAPI/2-1-1.png" alt="前端使用"></a></li></ul><p>2.<strong>部署配套前端</strong></p><ul><li>自行部署订阅转换前端进行配套使用（下期教程内容）</li></ul><p>3.<strong>自定义开发</strong></p><ul><li>更多使用场景可根据需求自行开发</li></ul><hr><h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><h3 id="🌐-网络访问"><a href="#🌐-网络访问" class="headerlink" title="🌐 网络访问"></a>🌐 网络访问</h3><ul><li>确保后端地址在<strong>无代理环境</strong>下可正常访问</li><li>如遇访问问题，可尝试<strong>套用 CDN</strong> 解决</li></ul><h3 id="🔒-域名选择"><a href="#🔒-域名选择" class="headerlink" title="🔒 域名选择"></a>🔒 域名选择</h3><ul><li>建议使用<strong>未被封锁的域名</strong>进行绑定</li><li>避免因域名被墙导致服务不可用</li></ul><h3 id="🛡️-隐私安全"><a href="#🛡️-隐私安全" class="headerlink" title="🛡️ 隐私安全"></a>🛡️ 隐私安全</h3><ul><li><strong>订阅泄露风险</strong>：在订阅转换后端无漏洞的前提下，你的<strong>订阅链接必然会透露</strong>给<strong>后端的维护者</strong>，所以<strong>避免使用来源不明的订阅转换后端</strong>！<br></style></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络代理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络代理 </tag>
+            
+            <tag> 订阅转换 </tag>
+            
+            <tag> 后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>对于原神的一些个人见解</title>
       <link href="/p/%E5%AF%B9%E4%BA%8E%E5%8E%9F%E7%A5%9E%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/"/>
       <url>/p/%E5%AF%B9%E4%BA%8E%E5%8E%9F%E7%A5%9E%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/</url>
